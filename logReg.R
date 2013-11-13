@@ -42,7 +42,7 @@ logReg <- function(trainX, trainY)
 		## check exit condition
 		if(sqrt(sum((new.w-old.epoch.w)^2)) < tol)
 		{
-			#print(iter)
+			print(iter)
 			return(new.w)
 		}
 	}
@@ -76,9 +76,6 @@ testLogReg <- function(N, is.in=T, plot=F){
 	if(is.in){
 		# evaluate in-sample error
 		error <- mean(log(1+exp(-sampleY*(cbind(1,sampleX) %*% g))))
-		print(mean(log(1+exp(-sampleY*(cbind(1,sampleX) %*% g)))))
-		print(mean(log(1+exp(-sampleY*(cbind(1,sampleX) %*% (2*g))))))
-		print(mean(log(1+exp(-sampleY*(cbind(1,sampleX) %*% (10*g))))))
 	}
 	else{
 		# evaluate out-of-sample error using Monte-Carlo method
